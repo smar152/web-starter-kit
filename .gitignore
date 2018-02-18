@@ -1,3 +1,6 @@
+# Mock database
+src/api/db.json
+
 # Webstorm Files
 .idea/
 
