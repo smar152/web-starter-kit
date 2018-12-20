@@ -11,12 +11,7 @@ let config = {
     output: getOutputData(environment),
     plugins: getPlugins(environment),
     module: {
-        // This means we can import any of these files with the import keyword
         rules: [{
-            test: /\.js$/,
-            exclude: /node_modules/,
-            use: ['babel-loader']
-        }, {
             test: /\.s?css$/,
             use: ExtractTextPlugin.extract({
                 fallback: 'style-loader',

@@ -11,17 +11,16 @@
     },
     "scripts": {
         "clean-dist": "rimraf ./dist && mkdir dist",
-        "prebuild": "npm-run-all clean-dist test lint",
+        "clean-dist-js": "rimraf ./dist/js",
+        "prebuild": "npm-run-all clean-dist",
         "build": "babel-node buildScripts/build.js",
+        "postbuild": "npm-run-all clean-dist-js",
         "distserver": "babel-node buildScripts/distServer.js",
         "start": "npm-run-all --parallel security_check open:src lint:watch start-mockapi",
         "open:src": "babel-node buildScripts/srcServer.js",
         "localtunnel": "lt --port $npm_package_config_server_port --subdomain heypano",
         "localtunnel_help": "echo \"Localtunnel exposes port $npm_package_config_server_port ($$npm_package_config_server_port) at a url (https://localtunnel.github.io/www/)\"",
         "test": "echo \"No tests yet\"",
-        "prebananas": "babel-node buildScripts/prebananas.js",
-        "bananas": "babel-node buildScripts/bananas.js",
-        "postbananas": "babel-node buildScripts/postbananas.js",
         "security_check": "nsp check",
         "help": "babel-node buildScripts/help.js",
         "lint": "esw --color webpack.config.* src buildScripts",
@@ -31,15 +30,7 @@
         "start-mockapi": "json-server --watch src/api/db.json --port 3001"
     },
     "dependencies": {
-        "babel-polyfill": "^6.26.0",
-        "bootstrap": "^4.0.0",
-        "jquery": "^3.3.1",
-        "lodash": "^4.17.5",
-        "react": "^16.2.0",
-        "react-dom": "^16.2.0",
-        "react-router-dom": "^4.2.2",
-        "reactstrap": "^5.0.0-beta",
-        "whatwg-fetch": "^2.0.3"
+        "bootstrap": "^4.0.0"
     },
     "devDependencies": {
         "babel-cli": "^6.26.0",
@@ -92,7 +83,8 @@
         "starter",
         "kit",
         "npm",
-        "babel"
+        "babel",
+        "sass"
     ],
     "author": "Pano Papadatos (www.heypano.com)",
     "license": "MIT",
