@@ -1,1 +1,1 @@
-import '../scss/cssFile2.scss';
+import '../scss/cssFile1.scss';

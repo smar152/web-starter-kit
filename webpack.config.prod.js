@@ -18,7 +18,13 @@ let config = {
                 use: [
                     {
                         loader: 'css-loader',
-                        options: { sourceMap: true }
+                        options: {
+                            sourceMap: true,
+                            importLoaders: 1
+                        }
+                    },
+                    {
+                        loader: 'postcss-loader'
                     },
                     {
                         loader: 'sass-loader',
