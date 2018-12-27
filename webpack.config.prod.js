@@ -10,30 +10,13 @@ let config = {
     target: 'web', // You can use "node" or "electron" here
     output: getOutputData(environment),
     plugins: getPlugins(environment),
-    module: {
-        rules: [{
-            test: /\.s?css$/,
-            use: ExtractTextPlugin.extract({
-                fallback: 'style-loader',
-                use: [
-                    {
-                        loader: 'css-loader',
-                        options: {
-                            sourceMap: true,
-                            importLoaders: 1
-                        }
-                    },
-                    {
-                        loader: 'postcss-loader'
-                    },
-                    {
-                        loader: 'sass-loader',
-                        options: { sourceMap: true }
-                    }
-                ]
-            })
-        }]
-    }
+    // module: {
+    //     rules: [{
+    //         test: /\.js$/,
+    //         exclude: /node_modules/,
+    //         use: ['babel-loader']
+    //     }]
+    // }
 };
 
 export default config;
