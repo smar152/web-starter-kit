@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Article Viewer</title>
+    <% if(htmlWebpackPlugin.options.thisEnvironmentType) { %>
+    <script type="text/javascript">
+        window.thisEnvironmentType = '<%=htmlWebpackPlugin.options.environmentType%>';
+    </script>
+    <% } %>
+</head>
+<body class="theme-dark">
+    <div id="app" class="appContainer">
+        <button id="lightButton" class="button">Light Theme</button>
+        <button id="darkButton" class="button">Dark Theme</button>
+    </div>
+    <!-- html-webpack-plugin adds the bundle here dynamically -->
+</body>
+</html>

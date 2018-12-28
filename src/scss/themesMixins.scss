@@ -1,0 +1,54 @@
+@import "themesVariables";
+
+// Look at https://medium.com/@dmitriy.borodiy/easy-color-theming-with-scss-bc38fd5734d1
+
+// This mixin will create theme wrappers around the SCSS that is passed as a child to it
+
+// This will wrap everything in it in .theme-themeName <selector>
+@mixin themify($themes: $themes) { // The default themes are in themesVariables
+    // For each theme
+    // key: $theme the theme name
+    // value: $map the entire theme
+    @each $theme, $map in $themes {
+        .theme-#{$theme} & {
+            $theme-map: () !global; // defines a global SASS map named $theme-map which contains values defined for the current theme
+            // key: $key - the variable name e.g. font-style
+            // value: $value - the content of the
+            @each $key, $value in $map {
+                $value: map-get(map-get($themes, $theme), '#{$key}');
+                $theme-map: map-merge($theme-map, ($key: $value)) !global;
+            }
+
+            @content; // This is the CSS that is wrapped around the mixin
+            $theme-map: null !global;
+        }
+
+    }
+}
+
+// This will wrap everything in it in <selector>.theme-themeName (as opposed to .theme-themeName <selector> in themify() )
+// Use this for body
+@mixin themifyHere ($themes: $themes) { // The default themes are in themesVariables
+    // For each theme
+    // key: $theme the theme name
+    // value: $map the entire theme
+    @each $theme, $map in $themes {
+        &.theme-#{$theme} {
+            $theme-map: () !global; // defines a global SASS map named $theme-map which contains values defined for the current theme
+            // key: $key - the variable name e.g. font-style
+            // value: $value - the content of the
+            @each $key, $value in $map {
+                $value: map-get(map-get($themes, $theme), '#{$key}');
+                $theme-map: map-merge($theme-map, ($key: $value)) !global;
+            }
+
+            @content; // This is the CSS that is wrapped around the mixin
+            $theme-map: null !global;
+        }
+
+    }
+}
+
+@function themed($key) {
+    @return map-get($theme-map, $key);
+}

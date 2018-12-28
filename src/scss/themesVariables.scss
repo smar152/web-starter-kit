@@ -1,0 +1,24 @@
+// The actual themes
+
+$themes: (
+    light: (
+        backgroundColor: #ECF0F1,
+        textColor: #54B7FA,
+        buttonTextColor: #54B7FA,
+        buttonTextTransform: none,
+        buttonTextHoverColor: #57bcff,
+        buttonColor: #ECF0F1,
+        buttonBorder: 2px solid #ECF0F1,
+        globalBorder: 3px solid #ff00aa
+    ),
+    dark: (
+        backgroundColor: #393E46,
+        textColor: #ddd,
+        buttonTextColor: #aaa,
+        buttonTextTransform: uppercase,
+        buttonTextHoverColor: #ddd,
+        buttonColor: #333,
+        buttonBorder: 1px solid #ffaaee,
+        globalBorder: 2px solid #aaff00
+    ),
+);
