@@ -1,14 +1,14 @@
 # web-starter-kit
 SASS Compiler - The purpose of this specific branch is to create an environment purely for compiling `.scss` files int o `.css` files, bundling appropriately, prefixing etc.
 
-##Usage
+## Usage
 
-###Compile
+### Compile
 Run `npm run build`. 
 
 All JS files in `src/cssBundles` will be processed and generate a `.css` file with the same base name under `dist/css`. The bundled `.js` files are discarded at the end since they are only used for configuration. 
 
-###Add new files
+### Add new files
 For each new `.css` output that you want, add a new `.js` file to `src/cssBundles` with the name that you want each final `.css` file to have.
 
 Add whatever `.scss` or `.css` files you need to the project (probably under `src/scss` but potentially also under `node_modules`).
